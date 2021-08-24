@@ -1,5 +1,6 @@
 .SignUpBox-Container {
   font-family: sans-serif;
+  background-color: white;
   /* width: 50%;
   height: 600px;
   position: relative;
@@ -96,4 +97,5 @@
   color: rgb(135, 134, 131);
   text-align: left;
   font-size: 16px;
+  line-height: 2;
 }
