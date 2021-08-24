@@ -1,0 +1,86 @@
+.SignUpBox-Container {
+  font-family: sans-serif;
+  /* width: 50%;
+  height: 600px;
+  position: relative;
+  background-color: #c0c0c0;
+
+  /* background-color: transparent; */
+  /* align-items: center;
+
+  margin: auto;
+  color: white;
+  border-bottom: 5px dashed #0047ff;
+  border-left: 5px dashed #0047ff;
+  border-right: 5px dashed #0047ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0; */
+}
+
+.SignUpBox-WelcomeMsg {
+  font-size: 36pt;
+  font-style: oblique;
+  font-weight: bold;
+  text-align: center;
+}
+
+.SignUpBox-Msg {
+  font-size: 24pt;
+  font-style: oblique;
+  font-weight: bold;
+  text-align: center;
+  color: #0047ff;
+}
+
+.SignUpBox-InputTable {
+  /* display: table; */
+  width: 50%;
+}
+
+.SignUpBox-InputRow {
+  display: table-row;
+  margin: 5px 0 5px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.SignUpBox-InputCell-Title {
+  text-align: left;
+  color: rgb(135, 134, 131);
+}
+.SignUpBox-InputCell {
+  color: rgb(135, 134, 131);
+  font-size: 16px;
+  line-height: 1.5;
+  display: table-cell;
+  border: solid 1px #d7d7d6;
+  height: 44px;
+  background-color: #f9f9fa;
+}
+
+.SignUpBox-SignUpButton {
+  display: inline-block;
+  /* background-color: #ff00b8; */
+  background-color: rgb(246, 249, 249);
+  border: 1px solid rgb(212, 232, 226);
+  color: rgb(77, 171, 155);
+  margin: 5px 0 8px 0;
+  height: 36px;
+  width: 20%;
+}
+
+.SignUpBox-SignUpButton:hover {
+  /* color: white; */
+  color: rgb(36, 116, 102);
+  cursor: pointer;
+  border: 1px solid rgb(36, 116, 102);
+}
+
+.SignUpBox-InputCell:active {
+  /* color: white; */
+  color: #acaeaf;
+  cursor: pointer;
+  border: 1px #acaeaf;
+}
