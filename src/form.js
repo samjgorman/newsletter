@@ -6,6 +6,8 @@ import "./form.css";
 
 function Form(props) {
   const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
 
   let config = {
     headers: {
@@ -19,48 +21,57 @@ function Form(props) {
     };
     // e.preventDefault();
     const url = `https://api.buttondown.email/v1/subscribers`;
-    axios.post(url, data, config);
-
-    //   .then((response) => setProb(response.data));
-    //   (error) => {
-    //     console.log(error);
-    //   };
-    //   .then((response) => setResults(true));
-
-    // .catch((error)=>{
-    //     console.log(error);
-    //     //   this.setState({onError: true});
-    //  });
+    axios
+      .post(url, data, config)
+      .then((response) => setSubmitted(true))
+      .catch((error) => {
+        setError(true);
+        console.log(error);
+        //   this.setState({onError: true});
+      });
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   };
 
   return (
     <div>
-      {/* {prob ? ( */}
-      <div>Hi </div>) : (
-      <div className="SignUpBox-Container">
-        <div className="SignUpBox-InputTable">
-          <div className="SignUpBox-InputRow">
-            <div className="SignUpBox-InputCell-Title">Your Email</div>
-            <input
-              onChange={(e) => setEmail(e.target.value)}
-              className="SignUpBox-InputCell"
-              id="signUpBox-PasswordInput"
-              type="email"
-              value={email}
-            ></input>
+      {submitted ? (
+        <div className="SignUpBox-Submitted">
+          Thanks for signing up to my newsletter! If you're curious, I built
+          this by hosting a React app that sends a POST request to Buttondown,
+          the email client I'm using. Then, I put it in an iFrame with Notion.
+          Anyways-- Look out for a confirmation email! Thanks for the support!{" "}
+        </div>
+      ) : (
+        <div className="SignUpBox-Container">
+          <div className="SignUpBox-InputTable">
+            <div className="SignUpBox-InputRow">
+              <div className="SignUpBox-InputCell-Title">Your Email</div>
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                className="SignUpBox-InputCell"
+                id="signUpBox-PasswordInput"
+                type="email"
+                value={email}
+              ></input>
+            </div>
           </div>
+          <div className="SignUpBox-InputRow">
+            <button
+              className="SignUpBox-SignUpButton"
+              onClick={(e) => computeClick()}
+            >
+              Submit
+            </button>
+          </div>
+          {error && (
+            <div className="SignUpBox-Error">
+              {" "}
+              Oops! There's been an error. Try again with a new, valid email
+              address.{" "}
+            </div>
+          )}
         </div>
-        <div className="SignUpBox-InputRow">
-          <button
-            className="SignUpBox-SignUpButton"
-            onClick={(e) => computeClick()}
-          >
-            Submit
-          </button>
-        </div>
-      </div>
-      {/* )} */}
+      )}
     </div>
   );
 }
